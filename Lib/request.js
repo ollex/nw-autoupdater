@@ -5,13 +5,14 @@ const http = require( "http" ),
       { join } = require( "path" );
 
 /**
+ * to make this work with yii2 controller streaming this the .zip must be attached to the filename
  * Extract file name from a download URI
  * @param {string} uri
  * @returns {string}
  */
 function getFilename( uri ){
   const [ filename ] = url.parse( uri ).pathname.split( `/` ).reverse();
-  return filename;
+  return filename + '.zip';
 }
 
 /**
